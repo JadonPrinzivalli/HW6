@@ -33,6 +33,7 @@ void TestInsertFirstNode(){
 	rbt.Insert(30);
 	//cout << "rbt: " << rbt.ToPrefixString() << endl;
 	assert(rbt.ToInfixString() == " B30 ");
+	assert(rbt.Size() == 1);
 
 	cout << "PASSED!" << endl << endl;
 }

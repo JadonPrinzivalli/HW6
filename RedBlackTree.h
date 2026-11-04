@@ -24,6 +24,7 @@ public:
     RedBlackTree();
 
     void Insert(int value);
+    unsigned long long int Size() const;
 
     string ToInfixString() const {
         return ToInfixString(root);
