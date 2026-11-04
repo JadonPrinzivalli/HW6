@@ -236,6 +236,16 @@ void TestGetMinimumMaximum(){
 	cout << "PASSED!" << endl << endl;
 }
 
+void TestConstructorWithValue() {
+
+    RedBlackTree rbt = RedBlackTree(15);
+
+    assert(rbt.ToInfixString() == " B15 ");
+    assert(rbt.Size() == 1);
+
+    cout << "Constructor with value PASSED!" << endl;
+}
+
 
 
 
@@ -260,6 +270,7 @@ int main(){
 	TestContains();
 	TestGetMinimumMaximum();
 
+	TestConstructorWithValue();
 	
 	cout << "ALL TESTS PASSED!!" << endl;
 	return 0;

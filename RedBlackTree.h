@@ -22,6 +22,7 @@ class RedBlackTree {
 public:
 
     RedBlackTree();
+    RedBlackTree(int value);
 
     void Insert(int value);
     unsigned long long int Size() const;

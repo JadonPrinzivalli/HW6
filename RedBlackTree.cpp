@@ -49,3 +49,17 @@ void RedBlackTree::Insert(int value) {
 unsigned long long int RedBlackTree::Size() const {
     return numItems;
 }
+
+RedBlackTree::RedBlackTree(int value) {
+
+    root = new RBTNode;
+
+    root->data = value;
+    root->color = COLOR_BLACK;
+
+    root->left = nullptr;
+    root->right = nullptr;
+    root->parent = nullptr;
+
+    numItems = 1;
+}
