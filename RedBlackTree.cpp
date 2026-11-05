@@ -27,6 +27,44 @@ string RedBlackTree::ToInfixString(RBTNode* node) const {
     return result;
 }
 
+string RedBlackTree::ToPrefixString(RBTNode* node) const {
+    if (node == nullptr) {
+        return "";
+    }
+
+    string result = "";
+
+    if (node->color == COLOR_BLACK) {
+        result += " B" + to_string(node->data) + " ";
+    } else {
+        result += " R" + to_string(node->data) + " ";
+    }
+
+    result += ToPrefixString(node->left);
+    result += ToPrefixString(node->right);
+
+    return result;
+}
+
+string RedBlackTree::ToPostfixString(RBTNode* node) const {
+    if (node == nullptr) {
+        return "";
+    }
+
+    string result = "";
+
+    result += ToPostfixString(node->left);
+    result += ToPostfixString(node->right);
+
+    if (node->color == COLOR_BLACK) {
+        result += " B" + to_string(node->data) + " ";
+    } else {
+        result += " R" + to_string(node->data) + " ";
+    }
+
+    return result;
+}
+
 void RedBlackTree::Insert(int value) {
 
     if (root == nullptr) {

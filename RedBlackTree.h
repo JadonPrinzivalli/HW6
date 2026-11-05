@@ -31,12 +31,22 @@ public:
         return ToInfixString(root);
     }
 
+    string ToPrefixString() const {
+        return ToPrefixString(root);
+    }
+
+    string ToPostfixString() const {
+        return ToPostfixString(root);
+    }
+
 private:
 
     unsigned long long int numItems = 0;
     RBTNode* root = nullptr;
 
     string ToInfixString(RBTNode* node) const;
+    string ToPrefixString(RBTNode* node) const;
+    string ToPostfixString(RBTNode* node) const;
 };
 
 #endif
