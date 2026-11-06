@@ -44,10 +44,45 @@ void TestInsertFirstNode(){
 	cout << "PASSED!" << endl << endl;
 }
 
+void TestMultipleInsert() {
+    RedBlackTree rbt;
+
+    rbt.Insert(30);
+    rbt.Insert(15);
+    rbt.Insert(45);
+    rbt.Insert(10);
+
+    assert(rbt.Size() == 4);
+    assert(rbt.Contains(30));
+    assert(rbt.Contains(15));
+    assert(rbt.Contains(45));
+    assert(rbt.Contains(10));
+    assert(!rbt.Contains(99));
+
+    assert(rbt.GetMin() == 10);
+    assert(rbt.GetMax() == 45);
+
+    assert(rbt.ToInfixString() == " R10  R15  B30  R45 ");
+
+    bool duplicateThrown = false;
+
+    try {
+        rbt.Insert(15);
+    } catch (const std::invalid_argument&) {
+        duplicateThrown = true;
+    }
+
+    assert(duplicateThrown);
+    assert(rbt.Size() == 4);
+
+    cout << "Multiple insert PASSED!" << endl;
+}
+
 
 int main(){	
 	TestSimpleConstructor();
 	TestInsertFirstNode();
+	TestMultipleInsert();
 
 	cout << "ALL TESTS PASSED!!" << endl;
 	return 0;
