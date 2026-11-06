@@ -83,6 +83,26 @@ bool RedBlackTree::Contains(int value) const {
     return false;
 }
 
+int RedBlackTree::GetMin() const {
+    RBTNode* current = root;
+
+    while (current->left != nullptr) {
+        current = current->left;
+    }
+
+    return current->data;
+}
+
+int RedBlackTree::GetMax() const {
+    RBTNode* current = root;
+
+    while (current->right != nullptr) {
+        current = current->right;
+    }
+
+    return current->data;
+}
+
 void RedBlackTree::Insert(int value) {
 
     if (root == nullptr) {

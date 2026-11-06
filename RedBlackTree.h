@@ -23,6 +23,8 @@ public:
 
     RedBlackTree();
     RedBlackTree(int value);
+    int GetMin() const;
+    int GetMax() const;
 
     void Insert(int value);
     unsigned long long int Size() const;
