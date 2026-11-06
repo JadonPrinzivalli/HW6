@@ -65,6 +65,24 @@ string RedBlackTree::ToPostfixString(RBTNode* node) const {
     return result;
 }
 
+bool RedBlackTree::Contains(int value) const {
+    RBTNode* current = root;
+
+    while (current != nullptr) {
+        if (value == current->data) {
+            return true;
+        }
+
+        if (value < current->data) {
+            current = current->left;
+        } else {
+            current = current->right;
+        }
+    }
+
+    return false;
+}
+
 void RedBlackTree::Insert(int value) {
 
     if (root == nullptr) {

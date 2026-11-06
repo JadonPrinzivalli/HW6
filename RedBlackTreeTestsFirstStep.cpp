@@ -35,6 +35,8 @@ void TestInsertFirstNode(){
 	assert(rbt.ToInfixString() == " B30 ");
 	assert(rbt.ToPrefixString() == " B30 ");
     assert(rbt.ToPostfixString() == " B30 ");
+	assert(rbt.Contains(30) == true);
+	assert(rbt.Contains(15) == false);
 	assert(rbt.Size() == 1);
 
 	cout << "PASSED!" << endl << endl;

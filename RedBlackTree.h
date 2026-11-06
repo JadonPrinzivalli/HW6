@@ -26,6 +26,7 @@ public:
 
     void Insert(int value);
     unsigned long long int Size() const;
+    bool Contains(int value) const;
 
     string ToInfixString() const {
         return ToInfixString(root);
