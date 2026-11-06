@@ -2,6 +2,7 @@
 #define RED_BLACK_TREE_H
 
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -46,6 +47,9 @@ private:
 
     unsigned long long int numItems = 0;
     RBTNode* root = nullptr;
+    void FixInsert(RBTNode* node);
+    void LeftRotate(RBTNode* node);
+    void RightRotate(RBTNode* node);
 
     string ToInfixString(RBTNode* node) const;
     string ToPrefixString(RBTNode* node) const;

@@ -62,7 +62,7 @@ void TestMultipleInsert() {
     assert(rbt.GetMin() == 10);
     assert(rbt.GetMax() == 45);
 
-    assert(rbt.ToInfixString() == " R10  R15  B30  R45 ");
+    assert(rbt.ToInfixString() == " R10  B15  B30  B45 ");
 
     bool duplicateThrown = false;
 
@@ -78,11 +78,45 @@ void TestMultipleInsert() {
     cout << "Multiple insert PASSED!" << endl;
 }
 
+void TestRotationCases() {
+    // Each insertion order should produce the same balanced tree:
+
+    // Left-left: needs a right rotation.
+    RedBlackTree ll;
+    ll.Insert(30);
+    ll.Insert(20);
+    ll.Insert(10);
+    assert(ll.ToPrefixString() == " B20  R10  R30 ");
+
+    // Left-right: needs a left rotation, then a right rotation.
+    RedBlackTree lr;
+    lr.Insert(30);
+    lr.Insert(10);
+    lr.Insert(20);
+    assert(lr.ToPrefixString() == " B20  R10  R30 ");
+
+    // Right-right: needs a left rotation.
+    RedBlackTree rr;
+    rr.Insert(10);
+    rr.Insert(20);
+    rr.Insert(30);
+    assert(rr.ToPrefixString() == " B20  R10  R30 ");
+
+    // Right-left: needs a right rotation, then a left rotation.
+    RedBlackTree rl;
+    rl.Insert(10);
+    rl.Insert(30);
+    rl.Insert(20);
+    assert(rl.ToPrefixString() == " B20  R10  R30 ");
+
+    cout << "Rotation cases PASSED!" << endl;
+}
 
 int main(){	
 	TestSimpleConstructor();
 	TestInsertFirstNode();
 	TestMultipleInsert();
+	TestRotationCases();
 
 	cout << "ALL TESTS PASSED!!" << endl;
 	return 0;
